@@ -186,7 +186,7 @@ EmberParseAdapter.Serializer = DS.RESTSerializer.extend({
       hasMany.forEach(function(child){
         json[key].objects.push({
           "__type": "Pointer",
-          "className": child.parseClassName(),
+          "className": this.parseClassName(child.constructor.typeKey),
           "objectId": child.get('id')
         });
       });
